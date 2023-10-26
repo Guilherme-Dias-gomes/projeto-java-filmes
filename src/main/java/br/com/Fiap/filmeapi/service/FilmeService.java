@@ -24,6 +24,12 @@ public class FilmeService {
 		return dao.findById();
 	}
 
-	
+	public boolean save(Filme filmes) {
+		if (filmes.id() == null) return false;
+		if (filmes.titulo().length() < 5) return false;
+		if (filmes.sinopse().length() < 10) return false;
+		
+		return true;		
+	}
 	
 }

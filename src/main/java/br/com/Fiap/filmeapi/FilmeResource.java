@@ -6,6 +6,7 @@ import java.util.List;
 import br.com.Fiap.filmeapi.model.Filme;
 import br.com.Fiap.filmeapi.service.FilmeService;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
@@ -38,4 +39,14 @@ public class FilmeResource {
 		
 		return Response.ok(filme).build();
 	}
+	
+	@POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response cadastrar(Filme filmes) {
+    	if (!service.save(filmes)) {
+    		return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+    return Response.ok(filmes).build();
+    	
+    }
 }
