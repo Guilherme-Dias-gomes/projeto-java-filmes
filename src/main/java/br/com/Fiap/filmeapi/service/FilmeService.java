@@ -32,4 +32,21 @@ public class FilmeService {
 		return true;		
 	}
 	
+	private boolean verificar(Filme filme) {
+		if (filme.titulo().isEmpty()) return false;
+		if (filme.sinopse().length() < 10) return false;
+		if (!filme.poster().startsWith("http")) return false;
+		if (filme.nota() < 0 || filme.nota() > 5) return false;
+		
+		return true;
+	}
+	
+	public boolean atualizar(Filme filme) {
+		if (!verificar(filme)) return false;
+		
+		dao.update(filme);
+		return true;
+		
+	}
+	
 }

@@ -30,7 +30,7 @@ public class FilmeDao {
 					resultado.getString("TTL_FLM"),
 					resultado.getString("SNP_FLM"),
 					resultado.getString("IMG_FLM"),
-					resultado.getBigDecimal("NT_FLM"),
+					resultado.getDouble("NT_FLM"),
 					resultado.getBoolean("AST_FLM")
             ));
         }
@@ -50,10 +50,15 @@ public class FilmeDao {
 					resultado.getString("TTL_FLM"),
 					resultado.getString("SNP_FLM"),
 					resultado.getString("IMG_FLM"),
-					resultado.getBigDecimal("NT_FLM"),
+					resultado.getDouble("NT_FLM"),
 					resultado.getBoolean("AST_FLM")
 			));
 		}
 		return Filme;
+	}
+	
+	public void update(Filme filme) {
+		// UPDATE Serie SET ....
+		
 	}
 }
